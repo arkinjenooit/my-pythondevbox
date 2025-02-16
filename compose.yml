@@ -1,0 +1,21 @@
+
+services:
+  ubuntu-sshd:
+    container_name: ggmm-sshd
+    #image: my-ubuntu-sshd:latest
+    build: .
+    ports:
+      - "${HOST_PORT}:22"
+    environment:
+      SSH_USERNAME: ${SSH_USERNAME}
+      SSH_PASSWORD: ${SSH_PASSWORD}
+      AUTHORIZED_KEYS: "${AUTHORIZED_KEYS}"
+      #SSHD_CONFIG_ADDITIONAL: "your_additional_config"
+      #SSHD_CONFIG_FILE: "/path/to/your/sshd_config_file"
+    volumes:
+      - ./projects:/projects
+     # - ./path/to/authorized_keys_file:/path/to/authorized_keys_file
+     # - ./path/to/your/sshd_config_file:/path/to/your/sshd_config_file
+    restart: unless-stopped
+
+
