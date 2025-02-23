@@ -1,8 +1,8 @@
 
 services:
-  ubuntu-sshd:
-    container_name: ggmm-sshd
-    #image: my-ubuntu-sshd:latest
+  my-python-devbox:
+    container_name: my-python-devbox
+    image: my-python-devbox:latest
     build: .
     ports:
       - "${HOST_PORT}:22"
@@ -14,6 +14,7 @@ services:
       #SSHD_CONFIG_FILE: "/path/to/your/sshd_config_file"
     volumes:
       - ./projects:/projects
+      - ./user-app-install.sh:/user-app-install.sh
      # - ./path/to/authorized_keys_file:/path/to/authorized_keys_file
      # - ./path/to/your/sshd_config_file:/path/to/your/sshd_config_file
     restart: unless-stopped

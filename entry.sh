@@ -16,6 +16,9 @@ else
     usermod -aG sudo "$SSH_USERNAME"
     echo "User $SSH_USERNAME added to sudo group"
     ln -s /projects /home/$SSH_USERNAME/projects
+
+    # Install apps in user context
+    su -c "/user-app-install.sh" - $SSH_USERNAME
 fi
 
 # Set the authorized keys from the AUTHORIZED_KEYS environment variable (if provided)

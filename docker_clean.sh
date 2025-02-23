@@ -1,6 +1,6 @@
 echo "removing containers ..."
-docker container rm ggmm-sshd 
+docker container rm my-python-devbox 
 echo "removing images ..."
-docker image rm ubuntu-sshd-ubuntu-sshd
+docker image rm my-python-devbox
 echo "removing ssh keys ..."
-ssh-keygen -R [localhost]:4422
+ssh-keygen -R [localhost]:1990

@@ -24,11 +24,11 @@ RUN apt-get update \
     && deluser --remove-home ubuntu
     
 # Copy the script to configure the user's password and authorized keys
-COPY configure-ssh-user.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/configure-ssh-user.sh
+COPY entry.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/entry.sh
 
 # Expose SSH port
 EXPOSE 22
 
 # Start SSH server
-CMD ["/usr/local/bin/configure-ssh-user.sh"]
+CMD ["/usr/local/bin/entry.sh"]
